@@ -1,18 +1,19 @@
 import React from "react";
-import AddTodo from "./components/AddTodo";
-import TodoList from "./components/TodoList";
-import VisibilityFilters from "./components/VisibilityFilters";
-import "./styles.css";
+import TodoContainer from "./containers/TodoContainer";
+import { connect } from "react-redux";
+import { addTodo, setFilter, toggleTodo } from "./redux/actions";
+import { getTodosByVisibilityFilter } from "./redux/selectors";
 
-const TodoApp = () => {
-    return (
-        <div className="todo-app">
-            <h1>Todo List</h1>
-            <AddTodo />
-            <TodoList />
-            <VisibilityFilters />
-        </div>
-    ); 
+const mapStateToProps = state => {
+    const { visibilityFilter } = state;
+    const todos = getTodosByVisibilityFilter(state, visibilityFilter);
+    const activeFilter = visibilityFilter;
+    return { todos, activeFilter };
+};
+    
+const TodoApp = props => {
+    const { addTodo, ...rest } = props;
+    return (<TodoContainer addTodo={input => addTodo(input)} {...rest} />);
 }
 
-export default TodoApp;
+export default connect( mapStateToProps, { addTodo, setFilter, toggleTodo } )(TodoApp);
