@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TodoApp from './TodoApp';
-import { Provider } from 'react-redux';
-import store from './redux/store'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import TodoPage from './containers/TodoPage'
+import { Provider } from 'react-redux'
+import store from './store'
 
-const rootElement = document.getElementById('root');
-
-ReactDOM.render( <Provider store={store}><TodoApp/></Provider>, rootElement);
+const rootElement = document.getElementById('root')
+const Application = () => <Provider store={store}><TodoPage/></Provider>
+ReactDOM.render(<Application /> , rootElement)

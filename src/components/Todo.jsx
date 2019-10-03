@@ -1,5 +1,5 @@
-import React from "react";
-import cx from "classnames";
+import React from 'react'
+import cx from 'classnames'
 
 const Todo = ({ todo, toggleTodo }) => (
     <li className="todo-item" onClick={() => toggleTodo(todo.id)}>
@@ -14,4 +14,4 @@ const Todo = ({ todo, toggleTodo }) => (
     </li>
 )
 
-export default Todo;
+export default Todo

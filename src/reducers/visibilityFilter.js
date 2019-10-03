@@ -1,7 +1,7 @@
-import { SET_FILTER } from "../actionTypes";
-import { VISIBILITY_FILTERS } from "../../constants";
+import { SET_FILTER } from '../actions/types'
+import { VISIBILITY_FILTERS } from '../constants'
 
-const initialState = VISIBILITY_FILTERS.ALL;
+const initialState = VISIBILITY_FILTERS.ALL
 
 const visibilityFilter = (state = initialState, action) => {
     switch (action.type) {
@@ -12,6 +12,6 @@ const visibilityFilter = (state = initialState, action) => {
             return state;
         }
     }
-};
+}
 
-export default visibilityFilter;
+export default visibilityFilter
